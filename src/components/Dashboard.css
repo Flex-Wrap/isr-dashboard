@@ -1,0 +1,200 @@
+.dashboard {
+  width: 100%;
+  padding: 0 30px;
+  background-color: var(--color-dark-bg);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  box-sizing: border-box;
+}
+
+.dashboard-header {
+  grid-column: 1 / -1;
+  background-color: var(--color-dark-card);
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.dashboard-header h2 {
+  margin: 0 0 10px 0;
+  color: var(--color-primary-blue);
+  font-size: 28px;
+}
+
+.dashboard-header p {
+  margin: 5px 0;
+  color: var(--color-light-blue);
+  font-size: 16px;
+}
+
+.record-count {
+  font-weight: bold;
+  color: var(--color-accent);
+}
+
+.charts-grid {
+  display: contents;
+}
+
+.chart-container.full-width {
+  grid-column: 1 / -1;
+}
+
+.chart-container {
+  background-color: var(--color-dark-card);
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.chart-container h3 {
+  margin: 0;
+  padding: 15px 20px;
+  background-color: var(--color-dark-darker);
+  border-bottom: 1px solid var(--color-border);
+  font-size: 16px;
+  color: var(--color-primary-blue);
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.chart {
+  flex: 1;
+  min-height: 400px;
+  position: relative;
+}
+
+@media (max-width: 1200px) {
+  .charts-grid {
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+    padding: 0 15px;
+  }
+
+  .chart-container.full-width {
+    grid-column: 1;
+  }
+
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .chart {
+    min-height: 350px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard {
+    padding: 0 10px;
+    gap: 15px;
+  }
+
+  .chart {
+    min-height: 300px;
+  }
+
+  .chart-container h3 {
+    padding: 12px 15px;
+    font-size: 14px;
+  }
+
+  .dashboard-header h2 {
+    font-size: 22px;
+  }
+
+  .dashboard-header p {
+    font-size: 14px;
+  }
+}
+
+.chart-tooltip {
+  background: var(--color-dark-darker);
+  padding: 8px;
+  color: var(--color-text-light);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+}
+
+.export-menu {
+  position: relative;
+  z-index: 5;
+}
+
+.dashboard-header .export-menu {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  z-index: 5;
+}
+
+.export-menu-button {
+  background: none;
+  border: none;
+  color: var(--color-light-blue);
+  font-size: 20px;
+  cursor: pointer;
+  padding: 5px 8px;
+  transition: color 0.3s;
+  flex-shrink: 0;
+}
+
+.export-menu-button:hover {
+  color: var(--color-primary-blue);
+}
+
+.export-menu-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: var(--color-dark-darker);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  margin-top: 5px;
+  min-width: 150px;
+  z-index: 5;
+}
+
+.export-option {
+  display: block;
+  width: 100%;
+  padding: 10px 15px;
+  border: none;
+  background: none;
+  color: var(--color-light-blue);
+  font-size: 14px;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
+}
+
+.export-option:hover {
+  background-color: var(--color-primary-blue-lighter);
+  color: var(--color-primary-blue);
+}
+
+.export-option:first-child {
+  border-radius: 4px 4px 0 0;
+}
+
+.export-option:last-child {
+  border-radius: 0 0 4px 4px;
+}

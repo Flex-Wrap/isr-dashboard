@@ -74,7 +74,7 @@ export function ExportMenu({ dashboardRef, showPDF = true }: ExportMenuProps) {
         scale: 2,
         useCORS: true,
         allowTaint: true,
-        backgroundColor: "#0f1419",
+        backgroundColor: "#ffffff",
       })
         .then((canvas) => {
           const link = document.createElement("a");

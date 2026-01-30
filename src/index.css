@@ -3,9 +3,9 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color-scheme: light;
+  color: #002b3b;
+  background-color: #ffffff;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -13,33 +13,40 @@
   -moz-osx-font-smoothing: grayscale;
 
   /* Color Variables */
-  --color-dark-bg: #0f1b2e;
-  --color-dark-card: #1a2f4a;
-  --color-dark-darker: #162a42;
-  --color-dark-hover: #1a3a52;
-  --color-dark-hover-light: #1f3a52;
-  --color-table-border: #2a4a62;
-  --color-border: #4a7ba7;
-  --color-primary-blue: #5a9fd4;
-  --color-primary-blue-light: rgba(90, 159, 212, 0.1);
-  --color-primary-blue-lighter: rgba(90, 159, 212, 0.2);
-  --color-light-blue: #a0b8d0;
-  --color-text-light: #e0e8f0;
-  --color-text-secondary: #c0d0e0;
-  --color-accent: #ff8c00;
-  --color-accent-hover: #ff9f1a;
-  --color-accent-light: rgba(255, 140, 0, 0.5);
-  --color-error: #ff6b6b;
+  --color-dark-bg: #ffffff;
+  --color-dark-card: #f5f5f5;
+  --color-dark-darker: #efefef;
+  --color-dark-hover: #e8e8e8;
+  --color-dark-hover-light: #f0f0f0;
+  --color-table-border: #236192;
+  --color-border: #236192;
+  --color-primary-blue: #236192;
+  --color-primary-blue-light: rgba(35, 97, 146, 0.1);
+  --color-primary-blue-lighter: rgba(35, 97, 146, 0.2);
+  --color-light-blue: #236192;
+  --color-text-light: #002b3b;
+  --color-text-secondary: #555555;
+  --color-accent: #ed8b00;
+  --color-accent-hover: #d67a00;
+  --color-accent-light: rgba(237, 139, 0, 0.1);
+  --color-error: #c44450;
   --color-white: #fff;
+  --color-link: #236192;
+  --color-link-hover: #002b3b;
+  --color-button-base: #236192;
+  --color-centenary-orange: #e97200;
+  --color-centenary-blue: #0071b9;
+  --color-centenary-red: #c44450;
+  --color-centenary-purple: #7c4882;
 }
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: var(--color-link);
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: var(--color-link-hover);
 }
 
 body {
@@ -62,12 +69,12 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--color-button-base);
   cursor: pointer;
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: var(--color-link);
 }
 button:focus,
 button:focus-visible {

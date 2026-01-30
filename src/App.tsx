@@ -2,6 +2,7 @@ import { useState } from "react";
 import { loadCSV, CSV_COLUMNS } from "./utils/csvLoader";
 import { getUniques } from "./utils/dataHelpers";
 import { Dashboard } from "./components/Dashboard";
+import LogoWEC from "./assets/LogoWEC.svg";
 import "./App.css";
 
 function App() {
@@ -133,7 +134,10 @@ function App() {
     <div className="container">
       {/* Controls Section - Fixed at top */}
       <div className="controls">
-        <h1>ISR Demographic Overview</h1>
+        <div className="controls-header">
+          <h1>Issues Monitor Dashboard</h1>
+          <img src={LogoWEC} alt="WEC Logo" className="logo-wec" />
+        </div>
         <button onClick={handleLoadData}>Load CSV Data</button>
         {loading && <p>Loading CSV...</p>}
         {error && <p className="error">Error: {error}</p>}

@@ -176,15 +176,16 @@ export function Dashboard({
             innerRadius={0.5}
             padAngle={0.7}
             cornerRadius={3}
-            colors={{ scheme: "nivo" }}
+            colors={[theme.colors.centenaryOrange, theme.colors.centenaryBlue, theme.colors.centenaryRed, theme.colors.centenaryPurple]}
             borderWidth={1}
             borderColor={{ from: "color", modifiers: [["darker", 0.2]] }}
             arcLinkLabelsSkipAngle={10}
             arcLinkLabelsTextColor={theme.colors.lightBlue}
             arcLabelsSkipAngle={10}
             arcLabel={(d) => `${d.value}`}
+            arcLabelsTextColor="#ffffff"
             theme={{
-              text: { fill: theme.colors.lightBlue },
+              text: { fill: "#ffffff", textShadow: "0 1px 3px rgba(0, 0, 0, 0.7)" },
               legends: { text: { fill: theme.colors.lightBlue } },
             }}
             tooltip={({ datum }) => (
@@ -208,15 +209,16 @@ export function Dashboard({
             innerRadius={0.5}
             padAngle={0.7}
             cornerRadius={3}
-            colors={{ scheme: "set2" }}
+            colors={[theme.colors.centenaryOrange, theme.colors.centenaryBlue, theme.colors.centenaryRed, theme.colors.centenaryPurple]}
             borderWidth={1}
             borderColor={{ from: "color", modifiers: [["darker", 0.2]] }}
             arcLinkLabelsSkipAngle={10}
             arcLinkLabelsTextColor={theme.colors.lightBlue}
             arcLabelsSkipAngle={10}
             arcLabel={(d) => `${d.value}`}
+            arcLabelsTextColor="#ffffff"
             theme={{
-              text: { fill: theme.colors.lightBlue },
+              text: { fill: "#ffffff", textShadow: "0 1px 3px rgba(0, 0, 0, 0.7)" },
               legends: { text: { fill: theme.colors.lightBlue } },
             }}
             tooltip={({ datum }) => (
@@ -242,23 +244,25 @@ export function Dashboard({
             padding={0.3}
             valueScale={{ type: "linear" }}
             indexScale={{ type: "band", round: true }}
-            colors={() => theme.colors.primaryBlue}
+            colors={() => theme.colors.centenaryOrange}
             borderColor={theme.colors.border}
             theme={{
-              text: { fill: theme.colors.lightBlue },
-              axis: { legend: { text: { fill: theme.colors.lightBlue } } },
+              text: { fill: "#ffffff", textShadow: "0 1px 3px rgba(0, 0, 0, 0.7)" },
+              axis: { ticks: { text: { fill: theme.colors.lightBlue } }, legend: { text: { fill: theme.colors.lightBlue } } },
               grid: { line: { stroke: theme.colors.subtleBlue } },
               legends: { text: { fill: theme.colors.lightBlue } },
             }}
+            labelTextColor="#ffffff"
             axisTop={null}
-            axisRight={{
+            axisLeft={{
               tickSize: 5,
               tickPadding: 5,
               tickRotation: 0,
               legend: "Number of Respondants",
               legendPosition: "middle",
-              legendOffset: 30,
+              legendOffset: -50,
             }}
+            axisRight={null}
             axisBottom={{
               tickSize: 5,
               tickPadding: 5,
@@ -267,7 +271,6 @@ export function Dashboard({
               legendPosition: "middle",
               legendOffset: 60,
             }}
-            axisLeft={null}
             labelSkipWidth={12}
             labelSkipHeight={12}
             label={(d) => `${d.value}`}
@@ -294,23 +297,25 @@ export function Dashboard({
             padding={0.3}
             valueScale={{ type: "linear" }}
             indexScale={{ type: "band", round: true }}
-            colors={() => theme.colors.primaryBlue}
+            colors={() => theme.colors.centenaryBlue}
             borderColor={theme.colors.border}
             theme={{
-              text: { fill: theme.colors.lightBlue },
-              axis: { legend: { text: { fill: theme.colors.lightBlue } } },
+              text: { fill: "#ffffff", textShadow: "0 1px 3px rgba(0, 0, 0, 0.7)" },
+              axis: { ticks: { text: { fill: theme.colors.lightBlue } }, legend: { text: { fill: theme.colors.lightBlue } } },
               grid: { line: { stroke: theme.colors.subtleBlue } },
               legends: { text: { fill: theme.colors.lightBlue } },
             }}
+            labelTextColor="#ffffff"
             axisTop={null}
-            axisRight={{
+            axisLeft={{
               tickSize: 5,
               tickPadding: 5,
               tickRotation: 0,
               legend: "Number of Respondants",
               legendPosition: "middle",
-              legendOffset: 30,
+              legendOffset: -50,
             }}
+            axisRight={null}
             axisBottom={{
               tickSize: 5,
               tickPadding: 5,
@@ -319,7 +324,6 @@ export function Dashboard({
               legendPosition: "middle",
               legendOffset: 60,
             }}
-            axisLeft={null}
             labelSkipWidth={12}
             labelSkipHeight={12}
             label={(d) => `${d.value}`}
@@ -341,23 +345,25 @@ export function Dashboard({
             padding={0.3}
             valueScale={{ type: "linear" }}
             indexScale={{ type: "band", round: true }}
-            colors={() => theme.colors.primaryBlue}
+            colors={() => theme.colors.centenaryRed}
             borderColor={theme.colors.border}
             theme={{
-              text: { fill: theme.colors.lightBlue },
-              axis: { legend: { text: { fill: theme.colors.lightBlue } } },
+              text: { fill: "#ffffff", textShadow: "0 1px 3px rgba(0, 0, 0, 0.7)" },
+              axis: { ticks: { text: { fill: theme.colors.lightBlue } }, legend: { text: { fill: theme.colors.lightBlue } } },
               grid: { line: { stroke: theme.colors.subtleBlue } },
               legends: { text: { fill: theme.colors.lightBlue } },
             }}
+            labelTextColor="#ffffff"
             axisTop={null}
-            axisRight={{
+            axisLeft={{
               tickSize: 5,
               tickPadding: 5,
               tickRotation: 0,
               legend: "Number of Respondants",
               legendPosition: "middle",
-              legendOffset: 30,
+              legendOffset: -50,
             }}
+            axisRight={null}
             axisBottom={{
               tickSize: 5,
               tickPadding: 5,
@@ -366,7 +372,6 @@ export function Dashboard({
               legendPosition: "middle",
               legendOffset: 60,
             }}
-            axisLeft={null}
             labelSkipWidth={12}
             labelSkipHeight={12}
             label={(d) => `${d.value}`}
@@ -399,7 +404,7 @@ export function Dashboard({
               keys={["value"]}
               indexBy="name"
               margin={{ top: 60, right: 60, bottom: 60, left: 60 }}
-              colors={() => theme.colors.primaryBlue}
+              colors={() => theme.colors.centenaryPurple}
               borderColor={theme.colors.border}
               theme={{
                 text: { fill: theme.colors.lightBlue },
@@ -433,15 +438,15 @@ export function Dashboard({
               innerRadius={0.5}
               padAngle={0.7}
               cornerRadius={3}
-              colors={[theme.colors.primaryBlue, "#666"]}
+              colors={[theme.colors.centenaryBlue, theme.colors.centenaryOrange]}
               borderWidth={1}
               borderColor={{ from: "color", modifiers: [["darker", 0.2]] }}
-              arcLinkLabelsSkipAngle={10}
               arcLinkLabelsTextColor={theme.colors.lightBlue}
               arcLabelsSkipAngle={10}
               arcLabel={(d) => `${d.value}`}
+              arcLabelsTextColor="#ffffff"
               theme={{
-                text: { fill: theme.colors.lightBlue },
+                text: { fill: "#ffffff", textShadow: "0 1px 3px rgba(0, 0, 0, 0.7)" },
                 legends: { text: { fill: theme.colors.lightBlue } },
                 tooltip: {
                   container: {

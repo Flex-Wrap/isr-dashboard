@@ -4,6 +4,7 @@ import { ResponsivePie } from "@nivo/pie";
 import { ResponsiveRadar } from "@nivo/radar";
 import { CSV_COLUMNS } from "../utils/csvLoader";
 import { theme } from "../theme";
+import { ExportMenu } from "./ExportMenu";
 import "./Dashboard.css";
 
 interface DashboardProps {
@@ -156,12 +157,18 @@ export function Dashboard({
     <div className="dashboard" ref={dashboardRef}>
       <div className="dashboard-header">
         <h2>Dashboard</h2>
+        <p>
+          {selectedCountry} - {selectedRegion}
+        </p>
         <p className="record-count">Total Records: {data.length}</p>
+        <ExportMenu dashboardRef={dashboardRef} />
       </div>
 
       {/* Gender Distribution - Pie */}
       <div className="chart-container">
-        <h3>Gender Distribution</h3>
+        <h3>
+          Gender Distribution <ExportMenu showPDF={false} />
+        </h3>
         <div className="chart">
           <ResponsivePie
             data={genderData}
@@ -192,7 +199,9 @@ export function Dashboard({
 
       {/* Age Group Distribution - Pie */}
       <div className="chart-container">
-        <h3>Age Group Distribution</h3>
+        <h3>
+          Age Group Distribution <ExportMenu showPDF={false} />
+        </h3>
         <div className="chart">
           <ResponsivePie
             data={ageData}
@@ -223,7 +232,9 @@ export function Dashboard({
 
       {/* Sector Distribution - Bar */}
       <div className="chart-container full-width">
-        <h3>Sectors</h3>
+        <h3>
+          Sectors <ExportMenu showPDF={false} />
+        </h3>
         <div className="chart">
           <ResponsiveBar
             data={sectorData}
@@ -274,7 +285,9 @@ export function Dashboard({
 
       {/* Organization Stage Distribution - Bar */}
       <div className="chart-container">
-        <h3>Organization Stage</h3>
+        <h3>
+          Organization Stage <ExportMenu showPDF={false} />
+        </h3>
         <div className="chart">
           <ResponsiveBar
             data={stageData}
@@ -320,7 +333,9 @@ export function Dashboard({
 
       {/* Role Distribution - Bar */}
       <div className="chart-container">
-        <h3>Roles</h3>
+        <h3>
+          Roles <ExportMenu showPDF={false} />
+        </h3>
         <div className="chart">
           <ResponsiveBar
             data={roleData}
@@ -371,7 +386,9 @@ export function Dashboard({
 
       {/* Energy Focus Distribution */}
       <div className="chart-container full-width">
-        <h3>Energy Focus</h3>
+        <h3>
+          Energy Focus <ExportMenu showPDF={false} />
+        </h3>
         <div
           style={{
             display: "grid",

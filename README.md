@@ -1,96 +1,73 @@
-# Issues Monitor Dashboard
+# React + TypeScript + Vite
 
-A simple, single-page dashboard application for displaying issues monitoring data retrieved via API key authentication.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Features
+Currently, two official plugins are available:
 
-- Clean, minimalist design with WEC branding
-- Real-time data visualization using Nivo charts
-- Data fetching via secure API key authentication
-- Multiple chart types:
-  - Gender distribution (pie chart)
-  - Age group distribution (pie chart)
-  - Sectors (bar chart)
-  - Organization stages (bar chart)
-  - Roles (bar chart)
-  - Energy focus (radar & pie charts)
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Usage
+## React Compiler
 
-The application expects data to be fetched from an API endpoint using a key provided in the URL query parameter:
+The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
 
-```
-https://yourdomain.com/?key=YOUR_API_KEY
-```
+## Expanding the ESLint configuration
 
-The application will automatically fetch the data when loaded and display it in the dashboard.
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-## Data Format
-
-The API endpoint should return JSON data in the following format:
-
-```json
-[
+```js
+export default defineConfig([
+  globalIgnores(['dist']),
   {
-    "COUNTRY": "Country Name",
-    "GENDER": "Male/Female/Other",
-    "AGE_GROUP": "18-25",
-    "SECTOR": "Technology",
-    "ORGANISATION_STAGE": "Early Stage",
-    "ROLE": "Developer",
-    "ENERGY_FOCUS": "Solar",
-    "STATE_PROVINCE": "State/Province",
-    "REGION": "Region"
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
+
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
   },
-  ...
-]
+])
 ```
 
-## Development
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-### Prerequisites
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
 
-- Node.js 18+
-- npm or yarn
-
-### Installation
-
-```bash
-npm install
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
 ```
-
-### Running the Development Server
-
-```bash
-npm run dev
-```
-
-The application will be available at `http://localhost:5173`
-
-### Building for Production
-
-```bash
-npm run build
-```
-
-This generates optimized files in the `dist` directory.
-
-## Deployment to GitHub Pages
-
-To deploy to GitHub Pages:
-
-1. Update the `vite.config.ts` file with your repository name
-2. Push code to your GitHub repository
-3. The GitHub Actions workflow will automatically build and deploy
-
-## Technology Stack
-
-- **React 19** - UI framework
-- **TypeScript** - Type-safe JavaScript
-- **Vite** - Fast build tool
-- **Nivo Charts** - Data visualization
-- **CSS** - Styling
-
-## License
-
-proprietary

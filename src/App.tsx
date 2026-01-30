@@ -130,6 +130,21 @@ function App() {
   const endIndex = startIndex + rowsPerPage;
   const paginatedData = displayData.slice(startIndex, endIndex);
 
+  const handleDownloadJSON = () => {
+    if (displayData.length === 0) {
+      alert("No data to download. Please load CSV data first.");
+      return;
+    }
+    const jsonString = JSON.stringify(displayData, null, 2);
+    const blob = new Blob([jsonString], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `isr-data-${new Date().toLocaleDateString()}.json`;
+    link.click();
+    URL.revokeObjectURL(url);
+  };
+
   return (
     <div className="container">
       {/* Controls Section - Fixed at top */}
@@ -139,6 +154,7 @@ function App() {
           <img src={LogoWEC} alt="WEC Logo" className="logo-wec" />
         </div>
         <button onClick={handleLoadData}>Load CSV Data</button>
+        <button onClick={handleDownloadJSON}>Download JSON</button>
         {loading && <p>Loading CSV...</p>}
         {error && <p className="error">Error: {error}</p>}
         {allData.length > 0 && (

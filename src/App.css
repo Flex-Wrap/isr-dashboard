@@ -58,6 +58,7 @@ body {
   color: var(--color-white);
   font-weight: bold;
   transition: background-color 0.3s;
+  margin-right: 10px;
   margin-bottom: 20px;
 }
 

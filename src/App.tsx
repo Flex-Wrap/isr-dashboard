@@ -35,7 +35,7 @@ function App() {
     setError(null);
     try {
       const csvData = await loadCSV(
-        "/1901-R-Input-2026-ISR.csv",
+        `${import.meta.env.BASE_URL}1901-R-Input-2026-ISR.csv`,
         desiredColumns,
       );
       setAllData(csvData);
@@ -150,7 +150,7 @@ function App() {
       {/* Controls Section - Fixed at top */}
       <div className="controls">
         <div className="controls-header">
-          <h1>Issues Monitor Dashboard</h1>
+          <h1>World Energy Issues Monitor Internal</h1>
           <img src={LogoWEC} alt="WEC Logo" className="logo-wec" />
         </div>
         <button onClick={handleLoadData}>Load CSV Data</button>

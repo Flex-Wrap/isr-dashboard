@@ -35,7 +35,7 @@ function App() {
     setError(null);
     try {
       const csvData = await loadCSV(
-        `${import.meta.env.BASE_URL}1901-R-Input-2026-ISR.csv`,
+        `${import.meta.env.BASE_URL}survey-data.csv`,
         desiredColumns,
       );
       setAllData(csvData);
